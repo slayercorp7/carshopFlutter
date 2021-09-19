@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <resources>
+
+ <string name="app_name">carrito_de_compras</string>
+
+ <string name="facebook_app_id">992171534660841</string> 
+ <string name="fb_login_protocol_scheme">fb992171534660841</string>
+
+
+ </resources>

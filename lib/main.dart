@@ -1,82 +1,33 @@
-import 'package:carrito_de_compras/ui/screen/cart_page.dart';
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, use_full_hex_values_for_flutter_colors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+
+import 'package:carrito_de_compras/bloc/bloc_user.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:carrito_de_compras/ui/screen/screen_pass.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
-import 'package:carrito_de_compras/ui/widget/botton.dart';
-
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
-    );
-  }
-}
+    return BlocProvider(
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
 
-class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 1, vsync: this);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        elevation: 0.0,
-        centerTitle: true,
-        title: Text('',
-            style: TextStyle(fontSize: 20.0, color: Color(0xFFB71C1C))),
-      ),
-      body: ListView(
-        padding: EdgeInsets.only(left: 20.0),
-        children: <Widget>[
-          SizedBox(height: 15.0),
-          Text('Tienda online',
-              style: TextStyle(fontSize: 42.0, fontWeight: FontWeight.bold)),
-          SizedBox(height: 15.0),
-          TabBar(
-              controller: _tabController,
-              indicatorColor: Colors.transparent,
-              labelColor: Color(0xFF424242C),
-              isScrollable: true,
-              labelPadding: EdgeInsets.only(right: 45.0),
-              unselectedLabelColor: Color(0xFF424242),
-              tabs: [
-                Tab(
-                  child: Text('artículos',
-                      style: TextStyle(
-                        fontSize: 21.0,
-                      )),
-                )
-              ]),
-          Container(
-              height: MediaQuery.of(context).size.height - 50.0,
-              width: double.infinity,
-              child: TabBarView(controller: _tabController, children: [
-                CartPage(),
-              ]))
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Color(0xFF424242),
-        child: Icon(Icons.time_to_leave_outlined),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: Botton(),
-    );
+          // home: Profile(),
+          home: ScreenPass(),
+        ),
+        bloc: BlocUser());
   }
 }
