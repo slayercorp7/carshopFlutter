@@ -38,15 +38,15 @@ class ScreenPass extends StatelessWidget {
       Row(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 80, left: 50),
+            margin: EdgeInsets.only(top: 80, left: 40),
             width: 270,
             height: 150,
             child: Text(
-              "Bienvenido \n Almacen Industrial \n te da la bienvenido",
+              "Bienvenido \n Almacen Industrial \n te da la bienvenida",
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
             ),

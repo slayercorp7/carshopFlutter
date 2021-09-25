@@ -26,18 +26,18 @@ class Load extends StatelessWidget {
                 mainAxisSpacing: 15.0,
                 childAspectRatio: 0.8,
                 children: <Widget>[
-                  _buildCard('art#1', '\$00.00', 'assets/img/shoes1_1.png',
-                      false, false, context),
-                  _buildCard('art#2', '\$00.00', 'assets/img/shoes1_2.png',
-                      true, false, context),
-                  _buildCard('art#3', '\$00.00', 'assets/img/shoes1_3.png',
-                      false, true, context),
-                  _buildCard('art#4', '\$00.00', 'assets/img/shoes2_2.png',
-                      false, false, context),
+                  _build('art#1', '\$00.00', 'assets/img/shoes1_1.png', false,
+                      false, context),
+                  _build('art#2', '\$00.00', 'assets/img/shoes1_2.png', true,
+                      false, context),
+                  _build('art#3', '\$00.00', 'assets/img/shoes1_3.png', false,
+                      true, context),
+                  _build('art#4', '\$00.00', 'assets/img/shoes2_2.png', false,
+                      false, context),
                   Container(
                       width: 400,
                       height: 70,
-                      margin: EdgeInsets.only(left: 0),
+                      margin: EdgeInsets.only(left: 10),
                       alignment: Alignment.topRight,
                       child: GoogleBtn(
                           heightC: 200.0,
@@ -54,7 +54,7 @@ class Load extends StatelessWidget {
         ));
   }
 
-  Widget _buildCard(String name, String price, String imgPath, bool added,
+  Widget _build(String name, String price, String imgPath, bool added,
       bool isFavorite, context) {
     return Padding(
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
