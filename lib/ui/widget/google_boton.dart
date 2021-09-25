@@ -3,18 +3,20 @@
 import 'package:flutter/material.dart';
 
 class GoogleBtn extends StatefulWidget {
-  final String text;
+  //final String text;
+  final String path;
   double widhtC = 0.0;
   double heightC = 0.0;
   late final VoidCallback onPressed;
 
-  GoogleBtn({
-    Key? key,
-    required this.heightC,
-    required this.widhtC,
-    required this.onPressed,
-    required this.text,
-  });
+  GoogleBtn(
+      {Key? key,
+      required this.path,
+      required this.heightC,
+      required this.widhtC,
+      required this.onPressed
+      //required this.text,
+      });
 
   @override
   State<StatefulWidget> createState() {
@@ -28,18 +30,21 @@ class _GoogleBtn extends State<GoogleBtn> {
     return InkWell(
         onTap: widget.onPressed,
         child: Container(
-          margin: EdgeInsets.all(15),
-          width: widget.widhtC,
-          height: widget.heightC,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              gradient: LinearGradient(
-                colors: [Color(0xFFC25B5A), Color(0xFFCF3431)],
-                begin: FractionalOffset(0.4, 0.0),
-                end: FractionalOffset(1.0, 0.6),
-                stops: [0.0, 0.7],
-              )),
-          child: Text(
+            margin: EdgeInsets.all(15),
+            width: widget.widhtC,
+            height: widget.heightC,
+            /* decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                gradient: LinearGradient(
+                  colors: [Color(0xFFC25B5A), Color(0xFFCF3431)],
+                  begin: FractionalOffset(0.4, 0.0),
+                  end: FractionalOffset(1.0, 0.6),
+                  stops: [0.0, 0.7],
+                )),*/
+            child: Image(
+              image: AssetImage(widget.path),
+            )
+            /*Text(
             widget.text,
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -49,7 +54,7 @@ class _GoogleBtn extends State<GoogleBtn> {
               color: Colors.white70,
               fontWeight: FontWeight.bold,
             ),
-          ),
-        ));
+          ),*/
+            ));
   }
 }

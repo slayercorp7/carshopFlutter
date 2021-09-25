@@ -18,6 +18,10 @@ class BlocUser implements Bloc {
     return _authRepository.signInFirebase();
   }
 
+  static out() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   void dispose() {}
 }

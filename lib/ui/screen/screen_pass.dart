@@ -26,7 +26,7 @@ class ScreenPass extends StatelessWidget {
           if (!snapshot.hasData || snapshot.hasError) {
             return login();
           } else {
-            return load();
+            return Load();
           }
         });
   }
@@ -60,7 +60,7 @@ class ScreenPass extends StatelessWidget {
               Container(
                 width: 300,
                 height: 250,
-                margin: EdgeInsets.only(top: 160, left: 40),
+                margin: EdgeInsets.only(top: 200, left: 40),
                 child: Image(
                   image: AssetImage("assets/img/shoes1.0.jpg"),
                   fit: BoxFit.cover,
@@ -89,44 +89,41 @@ class ScreenPass extends StatelessWidget {
           )
         ],
       ),
-      /*Row(
-        children: [
-          Container(
-              width: 250,
-              height: 80,
-              margin: EdgeInsets.only(top: 600, left: 60),
-              alignment: Alignment.topCenter,
-              child: GoogleBtn(
-                  heightC: 40.0,
-                  widhtC: 180.0,
-                  onPressed: () {
-                    userBloc.signIn2();
-                  }, //{
-                  //bloc_user.signIn().then((UserCredential user) =>
-                  //print("usted se a autenticado como:${user.user}"));
-
-                  //},
-                  text: "google"))
-        ],
-      ),*/
       Row(
         children: [
           Container(
               width: 250,
-              height: 80,
-              margin: EdgeInsets.only(top: 700, left: 60),
+              height: 100,
+              margin: EdgeInsets.only(top: 600, left: 60),
               alignment: Alignment.topCenter,
               child: GoogleBtn(
-                  heightC: 40.0,
-                  widhtC: 180.0,
+                heightC: 180.0,
+                widhtC: 180.0,
+                onPressed: () {
+                  userBloc.signIn2();
+                },
+                path: "assets/img/google.png",
+              ))
+        ],
+      ),
+      Row(
+        children: [
+          Container(
+              width: 250,
+              height: 100,
+              margin: EdgeInsets.only(top: 680, left: 60),
+              alignment: Alignment.topCenter,
+              child: GoogleBtn(
+                  heightC: 200.0,
+                  widhtC: 100.0,
                   onPressed: () {
-                    userBloc.signIn2();
+                    userBloc.signIn3();
                   }, //{
                   //bloc_user.signIn().then((UserCredential user) =>
                   //print("usted se a autenticado como:${user.user}"));
 
                   //},
-                  text: "facebook"))
+                  path: "assets/img/facebook.png"))
         ],
       ),
     ]));
